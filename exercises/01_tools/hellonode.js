@@ -1,7 +1,8 @@
 const _ = require("lodash");
 
 function hellonode(array) {
-    console.log(_.first(array), _.last(array));
+
+    return _.first(array) + ' ' +_.last(array);
 }
 module.exports = hellonode;
 
