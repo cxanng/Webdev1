@@ -1,13 +1,11 @@
 const _ = require("lodash");
 
-let words = ['sky', 'wood', 'forest', 'falcon', 
-    'pear', 'ocean', 'universe'];
-
 function hellonode(array) {
-    console.log(_.first(array));
-    console.log(_.last(array));
+    console.log(_.first(array), _.last(array));
 }
-
-hellonode(words);
-
 module.exports = hellonode;
+
+const words = ['hello', 'goodbye', 'alpha', 'omega', 'edge', 'node'];
+const greeting = hellonode(words);
+
+console.log(greeting);
