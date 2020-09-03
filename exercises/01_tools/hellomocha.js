@@ -46,7 +46,7 @@ module.exports = {
             points += maxPoints / 2;
         }
 
-        if (answer.includes('plussa')) {
+        if (answer.includes('mocha')) {
             points += maxPoints / 2;
         }
 
