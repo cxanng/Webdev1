@@ -25,6 +25,9 @@
     <h3>Solving The Exercise step-by-step</h3>
 
     <h4>npm init</h4>
+    <p>First, create an empty hellonode.js file with command <code>touch hellonode.js</code>, to provide an entry point
+        for
+        <code>npm init</code>.</p>
     <p>The node.js project setup is run in the directory webdev1/exercises/01_tools with <code>npm init</code></p>
     <pre class="terminal">
 $$ npm init
@@ -117,15 +120,15 @@ found 0 vulnerabilities
         and under it, there exists the newly created sub-dir <code>lodash</code>:</p>
     <pre>
     .
-    ├── exercises/
-    │   └── 01_tools
-    │       ├── hellonode.js
-    │       ├── package.json
-    │       ├── node_modules/
-    │       │   └── lodash
-    │       │       ├── add.js
-    │       └── ...          
-    └── .gitignore
+    └── exercises/
+        └── 01_tools
+            ├── hellonode.js
+            ├── package.json
+            ├── node_modules/
+            │   └── lodash
+            │       ├── add.js
+            └── ...          
+            └── .gitignore
     </pre>
 
     <p>Let us examine lodash more closely:</p>
@@ -143,9 +146,9 @@ found 0 vulnerabilities
     <h4>Ignore node_modules</h4>
     <p>To omit the unneccary load for the git version control,
         these new 635 js modules must be ignored, add
-        .git_ignore in the exercise directory 01_tools, e.g., in the command prompt:
+        .gitignore in the exercise directory 01_tools, e.g., in the command prompt:
     </p>
-    cat >.git_ignore
+    cat >.gitignore
     node_modules/
     Ctrl-D
     </pre>
@@ -153,10 +156,10 @@ found 0 vulnerabilities
     <cite>
         concatenates files and prints on the standard output
     </cite>
-    <p> In the command, <code>cat >.git_ignore</code> ">" arrow directs the input to a defined file ".git_ignore".
+    <p> In the command, <code>cat >.gitignore</code> ">" arrow directs the input to a defined file ".gitignore".
         ">>" would append new last lines to the existing file.
         Once <code>node_modules</code> have been added, <code>Ctrl-D</code> key combination quits the edit.
-        After .git_ignore is effective, <code>git status</code> output should shorten.
+        After .gitignore is effective, <code>git status</code> output should shorten.
     </p>
 
 
@@ -173,6 +176,11 @@ found 0 vulnerabilities
     <pre class="terminal">
           $ <strong>npm install nodemon</strong>
         </pre>
+
+    <p>With Vagrant you need to use <em>sudo</em> to install with root privilidges. The command becomes:</p>
+    <pre class="terminal">
+            $ <strong>sudo npm install nodemon</strong>
+          </pre>
 
     <p>package.json is updated accordingly, now in </p>
     <pre>
@@ -205,38 +213,40 @@ const ver = _.VERSION;
 console.log(ver);    
     </code></pre>
 
-<p>You can test what you have achieved this far by calling: </p>
-<pre><code>node hellonode.js</code></pre>    
+    <p>You can test what you have achieved this far by calling: </p>
+    <pre><code>node hellonode.js</code></pre>
 
     </p>
     <p>hellonode.js must also define an a function <code>hellonode(array)</code>.
-        The function simply prints the first and the last item of an array
+        The function simply returns the first and the last item of an array
         concatenated as one string with the help of <code>first()</code> and <code>last()</code>
-        functions of lodash; remember, that these lodash methods have to be called with 
+        functions of lodash; remember, that these lodash methods have to be called with
         an appropriate dot notation.
         For example, if
-an array of strings <code>["hello", "goodbye", "alpha", "omega", "edge", "node"]</code>
-is given as an argument, the hellonode() function is expected to return a string "<samp>hello node</samp>".</p>
-
-    
-<p>Please also make your function available for <code>require</code> by adding <code>module.exports = hellonode</code> at the end of your file.
-</p>
+        an array of strings <code>["hello", "goodbye", "alpha", "omega", "edge", "node"]</code>
+        is given as an argument, the hellonode() function is expected to return a string "<samp>hello node</samp>".</p>
 
 
-<h4>module.exports makes your code reusable</h4> 
+    <p>Please also make your function available for <code>require</code> by adding
+        <code>module.exports = hellonode</code> at the end of your file.
+    </p>
 
-The modularity implies that a code can be shared in modules.
-In node.js, this requires <code>module.exports</code> from the 
-code provider, and <code>require('module')</code> from the "consumer".
-More about node modules <a href="https://www.nodebeginner.org/blog/post/nodejs-tutorial-what-are-node.js-modules/">here</a>.
-</p>
+
+    <h4>module.exports makes your code reusable</h4>
+
+    The modularity implies that a code can be shared in modules.
+    In node.js, this requires <code>module.exports</code> from the
+    code provider, and <code>require('module')</code> from the "consumer".
+    More about node modules <a
+        href="https://www.nodebeginner.org/blog/post/nodejs-tutorial-what-are-node.js-modules/">here</a>.
+    </p>
 
     <h4>Return your exercise in git repo</h4>
     <p>Returnables:</p>
     <ul>
         <li>Generated package.json with the init script "hellonode.js"</li>
         <li>Installed lodash and nodemon must exist in package.json</li>
-        <li>.git_ignore is added to the root</li>
+        <li>.gitignore is added to the root</li>
         <li>hellonode.js that must print the first and the last item of an array concatenated as a string</li>
         <li>Changes added, commited and then pushed to GitLab</li>
         <li>Git URL submitted to Plussa that grades your exercise</li>
