@@ -8,25 +8,10 @@ const possibleHeaders = {
 }
 
 const server = http.createServer((req, res) => {
-    if (req.headers.accept  == "text/xml" || 
-    req.headers.accept == "*/*") {
-        fs.readFile("data.html", (err, data) => {
-            res.writeHead(200, {'Content-Type' : "text/html"});
-            res.write(data);
-            res.end();
-        });        
-    }
-    else if (req.headers.accept == "aplication/json" ) {
-        fs.readFile('data.json', (err, data) => {
-            res.writeHead(200, {'Content-Type' : res.headers.accept});
-            res.write(data);
-            res.end();
-        })
-    }
-    else if (req.headers.accept == "text.xml" || 
-    req.headers.accept == "application/xml") {
-        fs.readFile('data.xml', (err, data) => {
-            res.writeHead(200, {'Content-Type' : res.headers.accept});
+    const reqHeader = req.headers.accept;
+    if (Object.keys(possibleHeaders).includes(reqHeader)) {
+        fs.readFile(possibleHeaders[reqHeader], (err, data) => {
+            res.writeHead(200, {"Content-Type" : reqHeader});
             res.write(data);
             res.end();
         })
