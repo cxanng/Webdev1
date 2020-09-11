@@ -16,7 +16,8 @@ const server = http.createServer((req, res) => {
             res.end();
         });        
     }
-    else if (req.headers.accept === "aplication/json") {
+    else if (req.headers.accept === "aplication/json" || 
+            req.headers.accept === "application/xml") {
         fs.readFile('data.json', (err, data) => {
             res.writeHead(200, {'Content-Type' : res.headers.accept});
             res.write(data);
