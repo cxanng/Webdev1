@@ -1,8 +1,8 @@
 const http = require('http');
 const fs = require('fs');
 const server = http.createServer((req, res) => {
-    if (req.headers.accept  === 'text/xml' || 
-    req.headers.accept === '*/*') {
+    if (req.headers.accept  === "text/xml" || 
+    req.headers.accept === "*/*") {
         fs.readFile('data.html', (err, data) => {
             res.writeHead(200, {'Content-Type' : 'text/html'});
             res.write(data);
@@ -10,14 +10,14 @@ const server = http.createServer((req, res) => {
         });
         
     }
-    else if (req.headers.accept === 'aplication/json') {
+    else if (req.headers.accept === "aplication/json") {
         fs.readFile('data.json', (err, data) => {
             res.writeHead(200, {'Content-Type' : res.headers.accept});
             res.write(data);
             res.end();
         })
     }
-    else if (req.headers.accept === 'text.xml') {
+    else if (req.headers.accept === "text.xml") {
         fs.readFile('data.xml', (err, data) => {
             res.writeHead(200, {'Content-Type' : res.headers.accept});
             res.write(data);
