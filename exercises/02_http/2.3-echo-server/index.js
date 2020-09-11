@@ -7,7 +7,7 @@ const server = http.createServer((req, res) => {
     }).on('end', () => {
         body = Buffer.concat(body).toString();
         res.writeHead(200, {'Context-Type': 'text/plain'});
-        res.write(JSON.stringify(body));
+        res.write(body);
         res.end();
     });
     
