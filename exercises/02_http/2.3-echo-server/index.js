@@ -6,12 +6,13 @@ const server = http.createServer((req, res) => {
         body.push(chunk);
     }).on('end', () => {
         body = Buffer.concat(body).toString();
+        res.writeHead(200, {'Context-Type': 'text/plain'});
+        res.write(JSON.stringify(body));
+        res.end();
     });
-    res.writeHead(200, {'Context-Type': 'text/plain'});
-    res.write(JSON.stringify(body));
-    res.end();
+    
 })
 
-// server.listen(3000, '127.0.0.1');
-// console.log('listening');
+server.listen(3000, '127.0.0.1');
+console.log('listening');
 
