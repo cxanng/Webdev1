@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const possibleHeaders = {
-    "text/xml" : "data.xml",
+    "application/xml, text/xml" : "data.xml",
     "text/html" : "data.txt",
     "aplication/json" : "data.json",
     "*/*" : "data.txt"
