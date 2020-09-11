@@ -1,10 +1,10 @@
 const http = require('http');
 const fs = require('fs');
 const possibleHeaders = {
-    "application/xml, text/xml" : "data.xml",
-    "text/html" : "data.txt",
-    "aplication/json" : "data.json",
-    "*/*" : "data.txt"
+    "application/xml,text/xml": "data.xml",
+    "text/plain": "data.txt",
+    "application/json": "data.json",
+    "*/*": "data.txt"
 }
 
 const server = http.createServer((req, res) => {
