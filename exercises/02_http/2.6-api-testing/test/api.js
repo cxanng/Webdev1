@@ -28,16 +28,18 @@ describe('Going through the routes', () => {
         // Even thou just leaving the function inside <em>end</em> method will pass,
         //  you must write the tests as described in the TODO inside the end method.
         it('it should receive a 404 response')
-        // , (done) => {
-        //     chai.request(server)
-        //         .get('/just_an_example_random_path_to_get_a_404')
-        //         .end((err, res) => {
-        //             // TODO: using the should style check that 
-        //             // a) the response's HTTP response status is 404, and 
-        //             // b) that the response body is empty  
-        //             done();
-        //         });
-        // });
+        , (done) => {
+            chai.request(server)
+                .get('/just_an_example_random_path_to_get_a_404')
+                .end((err, res) => {
+                    // TODO: using the should style check that 
+                    // a) the response's HTTP response status is 404, and 
+                    res.should.have.property('status').which.is.a.Number(404);
+                    // b) that the response body is empty  
+                    res.should.have.property('body').which.is.empty;
+                    done();
+                });
+        };
     });
 
     /*
@@ -52,17 +54,20 @@ describe('Going through the routes', () => {
         //  you must write the tests as described in the TODO inside the end method.
         it('it should GET the index.html')
         // TODO uncomment the needed parts
-        // , (done) => {
-        //     chai.request(server)
-        //         .get('/')
-        //         .end((err, res) => {
-        //             // TODO: using the should style check that 
-        //             // a) the response's HTTP response status is 
-        //             // b) that the response is in HTML form
-        //             // c) the text of the response is equal to index.html
-        //             done();
-        //         });
-        // });
+        , (done) => {
+            chai.request(server)
+                .get('/')
+                .end((err, res) => {
+                    // TODO: using the should style check that 
+                    // a) the response's HTTP response status is 
+                    res.status.should.be.equal(200);
+                    // b) that the response is in HTML form
+                    res.should.have.property('Content-Type').which.is('text/html');
+                    // c) the text of the response is equal to index.html
+                    res.text().should.be.equal('./index.html');
+                    done();
+                });
+        };
     });
 
     /*
@@ -77,17 +82,20 @@ describe('Going through the routes', () => {
         //  you must write the tests as described in the TODO inside the end method.
         it('it should GET the homer.html')
         // TODO uncomment the needed parts
-        // , (done) => {
-        //     chai.request(server)
-        //         .get('/classical')
-        //         .end((err, res) => {
-        //             // TODO: using the should style check that 
-        //             // a) the response's HTTP response status is 
-        //             // b) that the response is in HTML form
-        //             // c) the text of the response is equal to homer.html
-        //             done();
-        //         });
-        // });
+        , (done) => {
+            chai.request(server)
+                .get('/classical')
+                .end((err, res) => {
+                    // TODO: using the should style check that 
+                    // a) the response's HTTP response status is 
+                    res.status.should.be.equal(200);
+                    // b) that the response is in HTML form
+                    res.should.have.property('Content-Type').which.is.equal('text.html');
+                    // c) the text of the response is equal to homer.html
+                    res.text.should.be.equal('./homer.html');
+                    done();
+                });
+        };
     });
 
     /*
@@ -101,16 +109,19 @@ describe('Going through the routes', () => {
         // Even thou just leaving the function inside <em>end</em> method will pass,
         //  you must write the tests as described in the TODO inside the end method.
         it('it should GET the bradbury.html')
-        //     , (done) => {
-        //         chai.request(server)
-        //             .get('/modern')
-        //             .end((err, res) => {
-        //                 // TODO: using the should style check that 
-        //                 // a) the response's HTTP response status is 
-        //                 // b) that the response is in HTML form
-        //                 // c) the text of the response is equal to bradbury.html
-        //                 done();
-        //             });
-        //     });
+            , (done) => {
+                chai.request(server)
+                    .get('/modern')
+                    .end((err, res) => {
+                        // TODO: using the should style check that 
+                        // a) the response's HTTP response status is 
+                        res.status.should.be.equal(200);
+                        // b) that the response is in HTML form
+                        res.should.have.property('Content.Type').which.is.equal('text.html');
+                        // c) the text of the response is equal to bradbury.html
+                        res.text.should.be.equal('./bradbury.html');
+                        done();
+                    });
+            };
     });
 });
