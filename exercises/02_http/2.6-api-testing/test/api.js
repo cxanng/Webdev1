@@ -27,19 +27,19 @@ describe('Going through the routes', () => {
         // As the result the status of the test should go from 'pending' to 'passing'
         // Even thou just leaving the function inside <em>end</em> method will pass,
         //  you must write the tests as described in the TODO inside the end method.
-        it('it should receive a 404 response')
+        it('it should receive a 404 response'
         , (done) => {
             chai.request(server)
                 .get('/just_an_example_random_path_to_get_a_404')
                 .end((err, res) => {
                     // TODO: using the should style check that 
                     // a) the response's HTTP response status is 404, and 
-                    res.status.should.be.equal(404);
+                    res.status.should.be.equal(404); 
                     // b) that the response body is empty  
-                    res.body.should.be.empty();
+                    res.text.should.be.equal('');
                     done();
                 });
-        };
+        });
     });
 
     /*
@@ -52,7 +52,7 @@ describe('Going through the routes', () => {
         // As the result the status of the test should go from 'pending' to 'passing'
         // Even thou just leaving the function inside <em>end</em> method will pass,
         //  you must write the tests as described in the TODO inside the end method.
-        it('it should GET the index.html')
+        it('it should GET the index.html'
         // TODO uncomment the needed parts
         , (done) => {
             chai.request(server)
@@ -62,12 +62,14 @@ describe('Going through the routes', () => {
                     // a) the response's HTTP response status is 
                     res.status.should.be.equal(200);
                     // b) that the response is in HTML form
-                    res.should.have.property('Content-Type').which.is('text/html');
+                    res.should.to.be.html;
                     // c) the text of the response is equal to index.html
-                    res.text().should.be.equal('index.html');
+                    fs.readFile('index.html', (err, data) => {
+                        res.text.should.be.equal(data);
+                    })
                     done();
                 });
-        };
+        });
     });
 
     /*
@@ -80,7 +82,7 @@ describe('Going through the routes', () => {
         // As the result the status of the test should go from 'pending' to 'passing'
         // Even thou just leaving the function inside <em>end</em> method will pass,
         //  you must write the tests as described in the TODO inside the end method.
-        it('it should GET the homer.html')
+        it('it should GET the homer.html'
         // TODO uncomment the needed parts
         , (done) => {
             chai.request(server)
@@ -90,12 +92,15 @@ describe('Going through the routes', () => {
                     // a) the response's HTTP response status is 
                     res.status.should.be.equal(200);
                     // b) that the response is in HTML form
-                    res.should.have.property('Content-Type').which.is.equal('text.html');
+                    res.should.be.html;
                     // c) the text of the response is equal to homer.html
-                    res.text.should.be.equal('./homer.html');
+                    fs.readFile('homer.html', (err,data) => {
+                        res.text.should.be.equal(data);
+                    })
+                    
                     done();
                 });
-        };
+        });
     });
 
     /*
@@ -108,7 +113,7 @@ describe('Going through the routes', () => {
         // As the result the status of the test should go from 'pending' to 'passing'
         // Even thou just leaving the function inside <em>end</em> method will pass,
         //  you must write the tests as described in the TODO inside the end method.
-        it('it should GET the bradbury.html')
+        it('it should GET the bradbury.html'
             , (done) => {
                 chai.request(server)
                     .get('/modern')
@@ -117,11 +122,13 @@ describe('Going through the routes', () => {
                         // a) the response's HTTP response status is 
                         res.status.should.be.equal(200);
                         // b) that the response is in HTML form
-                        res.should.have.property('Content.Type').which.is.equal('text.html');
+                        res.should.be.html;
                         // c) the text of the response is equal to bradbury.html
-                        res.text.should.be.equal('./bradbury.html');
+                        fs.readFile('bradbury.html', (err,data) => {
+                            res.text.should.be.equal(data);
+                        })
                         done();
                     });
-            };
+            });
     });
 });

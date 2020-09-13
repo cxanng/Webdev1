@@ -6,7 +6,7 @@ const pathLead = {
     "/modern" : "bradbury.html"
 }
 
-const server = http.createServer((req, res) => {
+module.exports = http.createServer((req, res) => {
     const { method, url } = req;
     if (Object.keys(pathLead).includes(url)) {
         fs.readFile(pathLead[url], (err, data) =>{
@@ -14,11 +14,10 @@ const server = http.createServer((req, res) => {
             res.write(data);
             res.end();
         })
-    }
-    else {
+    } else {
         res.writeHead(404, 'Requested content not found');
         res.end();
     }
 })
 
-server.listen(3000, '127.0.0.1');
+// server.listen(3000, '127.0.0.1');
