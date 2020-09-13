@@ -64,9 +64,10 @@ describe('Going through the routes', () => {
                     // b) that the response is in HTML form
                     res.should.to.be.html;
                     // c) the text of the response is equal to index.html
-                    fs.readFile('index.html', (err, data) => {
-                        res.text.should.be.equal(data);
-                    })
+                    // fs.readFile('index.html', (err, data) => {
+                    //     res.text.should.be.equal(data);
+                    // })
+                    res.text.should.be.equal(fs.readFileSync('index.html').toString());
                     done();
                 });
         });
@@ -94,10 +95,7 @@ describe('Going through the routes', () => {
                     // b) that the response is in HTML form
                     res.should.be.html;
                     // c) the text of the response is equal to homer.html
-                    fs.readFile('homer.html', (err,data) => {
-                        res.text.should.be.equal(data);
-                    })
-                    
+                    res.text.should.be.equal(fs.readFileSync('homer.html').toString());
                     done();
                 });
         });
@@ -124,9 +122,7 @@ describe('Going through the routes', () => {
                         // b) that the response is in HTML form
                         res.should.be.html;
                         // c) the text of the response is equal to bradbury.html
-                        fs.readFile('bradbury.html', (err,data) => {
-                            res.text.should.be.equal(data);
-                        })
+                        res.text.should.be.equal(fs.readFileSync('bradbury.html').toString());
                         done();
                     });
             });
