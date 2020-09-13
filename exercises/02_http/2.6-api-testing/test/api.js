@@ -34,9 +34,9 @@ describe('Going through the routes', () => {
                 .end((err, res) => {
                     // TODO: using the should style check that 
                     // a) the response's HTTP response status is 404, and 
-                    res.should.have.property('status').which.is.a.Number(404);
+                    res.status.should.be.equal(404);
                     // b) that the response body is empty  
-                    res.should.have.property('body').which.is.empty;
+                    res.body.should.be.empty();
                     done();
                 });
         };
@@ -64,7 +64,7 @@ describe('Going through the routes', () => {
                     // b) that the response is in HTML form
                     res.should.have.property('Content-Type').which.is('text/html');
                     // c) the text of the response is equal to index.html
-                    res.text().should.be.equal('./index.html');
+                    res.text().should.be.equal('index.html');
                     done();
                 });
         };
