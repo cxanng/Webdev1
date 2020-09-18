@@ -11,6 +11,7 @@ submitButton.addEventListener("click", (event) => {
     clone.querySelector('h2').innerHTML = document.getElementById('input-name').value;
     clone.querySelector('p').innerHTML = document.getElementById('input-email').value;
     a.setAttribute('href', document.getElementById('input-homepage').value);
+    a.innerHTML = document.getElementById('input-homepage').value;
     div.appendChild(clone);
     form.reset();
 })
