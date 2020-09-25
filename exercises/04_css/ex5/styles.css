@@ -26,7 +26,6 @@ header{
     padding: 1.5rem;
     grid-area: h;
 }
-
 article {
     background-color: lightblue;
     border: solid;
@@ -79,4 +78,50 @@ footer{
 
 #aside2 {
     grid-area: aside2;
+}
+
+@media (max-width: 600px) {
+    article {
+    background-color: lightblue;
+    border: solid;
+    margin: 0;
+    display: grid;
+    /* TODO: modify the line below to add the needed grid-template-areas */
+    grid-template-areas: "sec1" 
+                         "aside1"
+                         "sec2" 
+                         "aside2"
+                         "sec3";
+    height: 100%;
+    }
+    footer{
+        background-color: darkslategray;
+        grid-area: f;
+        display: grid;
+        /* TODO: modify the line below to add the needed grid-template-areas */
+        grid-template-areas:  "nav1" 
+                              "nav2";
+        padding: 1.5rem;
+    }
+}
+
+@media (min-width : 992px) {
+    article {
+    background-color: lightblue;
+    border: solid;
+    margin: 0;
+    display: grid;
+    /* TODO: modify the line below to add the needed grid-template-areas */
+    grid-template-areas: "sec1 sec2 aside1"
+                         "sec3 . aside2";
+    height: 100%;
+    }
+    footer{
+        background-color: darkslategray;
+        grid-area: f;
+        display: grid;
+        /* TODO: modify the line below to add the needed grid-template-areas */
+        grid-template-areas:  "nav1 nav2";
+        padding: 1.5rem;
+    }
 }
