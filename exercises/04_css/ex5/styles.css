@@ -32,9 +32,9 @@ article {
     margin: 0;
     display: grid;
     /* TODO: modify the line below to add the needed grid-template-areas */
-    grid-template-areas: "sec1 aside1"
-                         "sec2 aside2"
-                         "sec3 .";
+    grid-template-areas: "sec1 sec2"
+                         "sec3 aside1"
+                         "aside2 .";
     height: 100%;
 }
 
@@ -55,8 +55,7 @@ footer{
     grid-area: f;
     display: grid;
     /* TODO: modify the line below to add the needed grid-template-areas */
-    grid-template-areas:  "nav1"
-                          "nav2";
+    grid-template-areas:  "nav1 nav2";
     padding: 1.5rem;
 }
 
