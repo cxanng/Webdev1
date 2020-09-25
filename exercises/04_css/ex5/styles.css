@@ -55,7 +55,8 @@ footer{
     grid-area: f;
     display: grid;
     /* TODO: modify the line below to add the needed grid-template-areas */
-    grid-template-areas:  "nav1 nav2";
+    grid-template-areas:  "nav1"
+                          "nav2";
     padding: 1.5rem;
 }
 
