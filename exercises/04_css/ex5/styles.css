@@ -113,5 +113,5 @@ footer{
     }
     footer{
         grid-template-areas:  "nav1 nav2 .";
-    }
+        display: flexbox;
 }

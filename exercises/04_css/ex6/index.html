@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <main>
     <h1>
         Accessibility demo
     </h1>
@@ -33,24 +34,24 @@
     <h2 id="information">Your information</h2>
     <form>
         <p>Name:</p>
-        <input id="name" autocomplete="off">
+        <input id="name" aria-label="name" autocomplete="off">
         <p>homePage:</p>
-        <input id="homePage" autocomplete="off">
+        <input id="homePage" aria-label="homepage" autocomplete="off">
         <p>Email:</p>
-        <input id="email" autocomplete="off">
+        <input id="email" aria-label="email" autocomplete="off">
         <p>Password:</p>
-        <input id="password" autocomplete="off">
+        <input id="password" aria-label="password" autocomplete="off">
         <p>Favorite city</p>
-        <select id="favoriteCity" name="select">
+        <select id="favoriteCity" aria-label="favCity" name="select" >
             <option value="1">Amsterdam</option>
             <option value="2">London</option>
             <option value="3">Moscow</option>
             <option value="4">Los Angeles</option>
             <option value="5">New York</option>
         </select>
-        <img src="submit.png" style="display:block; width: 200px; height: 200px;">
+        <img src="submit.png" style="display:block; width: 200px; height: 200px;" alt="hello" aria-label="hello">
     </form>
-
+    </main>
 </body>
 
 </html>
