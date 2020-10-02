@@ -6,6 +6,27 @@
  */
 function sortTableByColumn(col, table) {
   // TODO: Implement this function
+  var array = [];
+  const col_count = table.querySelector("thead > tr").childElementCount;
+  const row_count = table.querySelector("tbody").childElementCount;
+  const rows = table.querySelectorAll("tbody > tr");
+  const str = "td:nth-of-type(" + (col+1) + ")" ;
+  var elem;
+  for (elem of rows) {
+    array.push(elem.querySelector(str).innerText);
+  }
+  console.log(array);
+  array.sort(function(a, b) {return a.localeCompare(b)});
+  console.log(array);
+
+  var element;
+  for (element of array) {
+    for (elem of rows) {
+      if (elem.querySelector(str).innerText === element) {
+        table.querySelector("tbody").appendChild(elem);
+      }
+    }
+  }
 }
 
 /**
