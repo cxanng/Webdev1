@@ -7,7 +7,7 @@ document.addEventListener('userDataReady', (event) => {
         clone.querySelector('img').setAttribute('alt', object.firstName + ' ' + object.lastName);
         clone.querySelector('h1').innerText = object.firstName + ' ' + object.lastName;
         clone.querySelectorAll('p')[0].innerText = object.email;
-        clone.querySelectorAll('p > span').innerText = object.phoneNumber;
+        clone.querySelectorAll('p > span')[0].innerText = object.phoneNumber;
         clone.querySelectorAll('div > div > p')[0].innerText = object.address.streetAddress;
         clone.querySelectorAll('div > div > p')[1].innerText = object.address.zipCode + ' ' + object.address.city;
         clone.querySelectorAll('div > div > p')[2].innerText = object.address.country;
