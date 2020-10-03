@@ -20,7 +20,6 @@ document.addEventListener('rollDice', (e) => {
     var counter = document.querySelector("div > p > span");
     counter.innerText = parseInt(counter.innerText) + 1;
 
-    // const clone = document.getElementById(value[result][1]).contentEditable.cloneNode(true);
     var button = document.getElementById("roll-button");
     button.innerHTML = document.getElementById(value[result][1]).innerHTML;
 
