@@ -4,9 +4,10 @@
  * @throws an error, if the parameter 'value' is not a number. The error message must
  * be of format 'Parameter is not a number!'
  */
-const f = (value) => {
-  throw "Not yet implemented!";
-}
+const f = (value) => new Promise((resolve, reject) => !isNaN(value)
+    ? resolve(value)
+    : reject("Parameter is not a number!")
+  );
 
 /**
  * TODO: Implement a function 'g' that calls the previously made function 'f'.
@@ -14,9 +15,7 @@ const f = (value) => {
  * Handle exceptions gracefully by returning the thrown error message.
  * @param {number} value
  */
-const g = (value) => {
-  throw "Not yet implemented!";
-}
+const g = (value) => f(value).then(val => Math.log(val)).catch(e => e);
 
 /**
  * TODO: Implement a function 'checkIfFunction'.
@@ -27,9 +26,12 @@ const g = (value) => {
  * @returns resolved Promise with value true if parameter is a function or 
  * a rejected Promise with message "Not a function!" otherwise
  */
-const checkIfFunction = (param) => {
-  throw "Not yet implemented!";
-}
+const checkIfFunction = (param) =>
+  new Promise((resolve, reject) =>
+    typeof param === "function"
+      ? resolve(true)
+      : reject("Not a function!")
+);
 
 /**
  * TODO: Implement a function 'p' that returns a resolved Promise after a given time.
@@ -38,9 +40,15 @@ const checkIfFunction = (param) => {
  * @param {number} time
  * @returns {an empty Promise after a given time}, if time is acceptable
  */
-const p = (time) => {
-  throw "Not yet implemented!";
-};
+const p = (time) => new Promise((resolve, reject) => {
+  if (isNaN(time)) {
+    reject("Not a number!");
+  }
+  if (time > 2000) {
+    reject("Too long time!");
+  }
+  resolve(time);
+});
 
 //TODO: Verify that all functions are exported for tests
 exports.f = f;
