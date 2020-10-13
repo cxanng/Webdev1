@@ -10,7 +10,15 @@
  * @param {*} i the index of an array
  */
 async function drawArrows(actors, timeout, drawArrow, i=0) {
-
+    const len = actors.length;
+    if (i === 2 * len - 1) return;
+    const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+    if (i !== len - 1) {
+        drawArrow(i, timeout, actors.length);
+        wait(timeout).then(() => drawArrows(actors, timeout, drawArrow, i + 1));
+    } else {
+        wait(0).then(() => drawArrows(actors, timeout, drawArrow, i + 1));
+    }
 };
 
 
