@@ -12,7 +12,15 @@
  * @param {*} i the index, the nth arrow to be drawn, note that the sequence has to return from destination back to the source
  */
 const drawArrows = (actors, timeout, drawArrow, i = 0) => {
-}
+    const len = actors.length;
+    if (i === 2 * len - 1) return;
+    if (i !== len - 1) {
+        drawArrow(i, timeout, actors.length);
+        setTimeout(() => drawArrows(actors, timeout, drawArrow, i + 1), timeout);
+    } else {
+        setTimeout(() => drawArrows(actors, timeout, drawArrow, i + 1), 0);
+    }
+};
 
 
 
