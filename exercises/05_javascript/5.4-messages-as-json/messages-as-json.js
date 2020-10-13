@@ -16,10 +16,14 @@ document.addEventListener('userDataReady', (event) => {
         
         // Modify contents
         clone.querySelector('p.email').innerText = object.email;
+        
         clone.querySelector('p.phone > span').innerText = object.phoneNumber;
-        clone.querySelectorAll('div.address > p')[0].innerText = object.address.streetAddress;
-        clone.querySelectorAll('div.address > p')[1].innerText = object.address.zipCode + ' ' + object.address.city;
-        clone.querySelectorAll('div.address > p')[2].innerText = object.address.country;
+        
+        const address = clone.querySelectorAll('div.address > p');
+        address[0].innerText = object.address.streetAddress;
+        address[1].innerText = object.address.zipCode + ' ' + object.address.city;
+        address[2].innerText = object.address.country;
+        
         clone.querySelector('p.homepage > a').setAttribute('href', object.homepage);
         clone.querySelector('p.homepage > a').innerText = object.homepage;
 
