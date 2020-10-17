@@ -11,16 +11,7 @@
  * @param {*} i the index of the arrow
  */
 function drawArrows(actors, timeout, drawArrow, i = 0) {
-    const len = actors.length;
-    const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
-    (async ()  => {
-        for (let i = 0; i < 2 * len - 1; ++i) {
-            if (i !== len - 1) {
-                drawArrow(i, timeout, actors.length);
-                await wait(timeout);
-            }
-        }
-    })();
+
 };
 
 

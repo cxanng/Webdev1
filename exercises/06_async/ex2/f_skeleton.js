@@ -5,9 +5,7 @@
  * See rejectable for reference
  */
 const thenable = {
-  then: function (onFulfilled) {
-    setTimeout(() => onFulfilled("👍"), 10);
-  }
+  then: function (onFulfilled) {}
 };
 
 /**
