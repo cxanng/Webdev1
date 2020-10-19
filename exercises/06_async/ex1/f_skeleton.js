@@ -8,7 +8,7 @@ const f = (value) => new Promise((resolve, reject) => {
   if (!isNaN(value)) {
     resolve(value);
   } else {
-    reject('Parameter is not a number');
+    reject('Parameter is not a number!');
   }
 });
 
@@ -30,7 +30,7 @@ const g = (value) => f(value).then(val => Math.log(val)).catch(e => e);
  * a rejected Promise with message "Not a function!" otherwise
  */
 const checkIfFunction = (param) => new Promise((resolve, reject) => {
-  typeof param === 'function' ? resolve(value) : reject('Not a function!')
+  typeof param === 'function' ? resolve(true) : reject('Not a function!')
 });
 
 /**
@@ -42,9 +42,9 @@ const checkIfFunction = (param) => new Promise((resolve, reject) => {
  */
 const p = (time) => f(time).then( t => {
   new Promise((resolve, reject) => {
-    t > 2000 ? reject('Too long time') : resolve(t)
+    t > 2000 ? reject('Too long time!') : resolve(t)
   });
-}).catch(e => e);
+}).catch(e => 'Not a number!');
 
 //TODO: Verify that all functions are exported for tests
 exports.f = f;
