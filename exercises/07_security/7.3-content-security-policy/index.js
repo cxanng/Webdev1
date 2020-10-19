@@ -19,7 +19,7 @@ http.createServer((request, response) => {
                 // TODO: modify Content Security 
                 // Policy header value as required
                 response.writeHead(200, {
-                    'Content-Security-Policy':  'srcipt-src \'self\' js/let_me_run.js; img-src \'*.staticflickr.com/* \' *.creativecommons.org/*'
+                    'Content-Security-Policy':  'srcipt-src \'self\' js/let_me_run.js; img-src staticflickr.com creativecommons.org'
                 });
                 response.write(file);
             }
