@@ -24,7 +24,8 @@ http.createServer((request, response) => {
             </head>
             <body>
                 <p id="xss">Here be XSS!</p>
-                ${queryObject['addThisText']}
+                ${queryObject['addThisText'].replaceAll('<', '&lt;').replaceAll('>', '&gt;')}
+                
             </body >
             </html >
     `);
