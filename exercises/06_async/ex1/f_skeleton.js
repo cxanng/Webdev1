@@ -40,11 +40,17 @@ const checkIfFunction = (param) => new Promise((resolve, reject) => {
  * @param {number} time
  * @returns {an empty Promise after a given time}, if time is acceptable
  */
-const p = (time) => f(time).then( t => {
-  new Promise((resolve, reject) => {
-    t > 2000 ? reject('Too long time!') : resolve(t)
-  });
-}).catch(e => 'Not a number!');
+const p = (time) => new Promise((resolve, reject) => {
+  if (!isNaN(time)) {
+    reject('Not a number!');
+  }
+  if (time > 2000) {
+    reject('Too long time!');
+  }
+  else {
+    resolve(time);
+  }
+});
 
 //TODO: Verify that all functions are exported for tests
 exports.f = f;
