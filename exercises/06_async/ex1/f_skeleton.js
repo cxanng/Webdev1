@@ -41,7 +41,7 @@ const checkIfFunction = (param) => new Promise((resolve, reject) => {
  * @returns {an empty Promise after a given time}, if time is acceptable
  */
 const p = (time) => new Promise((resolve, reject) => {
-  if (!isNaN(time)) {
+  if (isNaN(time)) {
     reject('Not a number!');
   }
   if (time > 2000) {
