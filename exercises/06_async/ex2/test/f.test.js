@@ -9,7 +9,11 @@ describe("thenable", () => {
     // This test can be implemented with either Promises or with async / await.
     // Use expect() and to.equal()
     // to make sure that the resolved value is 👍
-    throw "Not yet implemented!";
+    Promise.resolve(f.thenable)
+    .then(res => {
+      expect(res).to.equal("👍");
+      done();
+    });
   });
 });
 
